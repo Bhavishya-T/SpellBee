@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    
+
+    <title>Spell Bee!</title>
+  </head>
+  <style>
+      body { overflow-y: scroll; }
+  </style>
+  <body class="bg-light">
+    <div class="container">
+        <div class="navbar justify-content-center">
+            <h1 class="display-1">Spelling Bee</h1>
+            <br>
+        </div>
+        <div class="text-center">
+            <p class="lead">This is an app where you can practice and play Spell Bee! Choose an option below to get started.</p>
+        </div>
+        <br>
+        <br>
+        <div class="d-flex justify-content-center">
+            <div id="buttons">
+                <button class="btn btn-outline-secondary btn-lg" id="practice">Practice</button>
+                <button class="btn btn-outline-secondary btn-lg" id="play">Play</button>
+            </div>
+        </div>
+        <div class="col d-flex justify-content-center d-none" id="main">
+            <div class="card" style="width: 80%;">
+                <div class="card-body">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="filt-tab" data-toggle="tab" href="#filter" role="tab" aria-controls="filter" aria-selected="true">Filters</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="diff-tab" data-toggle="tab" href="#difficulty" role="tab" aria-controls="difficulty" aria-selected="false">Difficulty</a>
+                        </li>
+                      </ul>
+                      <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="filter" role="tabpanel" aria-labelledby="filt-tab">
+                            <p class="text-muted mt-3">These fields are optional, but you will have to choose difficulty</p>
+                            <form id="form">
+                                <div class="row">
+                                    <div class="form-group col">
+                                        <label for="min">Minimum number of letters</label>
+                                        <input type="number" class="form-control" id="min" placeholder="4">
+                                    </div>
+                                    <div class="form-group col">
+                                        <label for="max">Maximum number of letters</label>
+                                        <input type="number" class="form-control" id="max" placeholder="10">
+                                    </div>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label for="start">Starting letter</label>
+                                    <input type="text" id="start" class="form-control" placeholder="a">
+                                </div>
+                                <div class="form-group mt-3 mb-3">
+                                    <label for="part">Part of Speech</label>
+                                    <input type="text" id="part" class="form-control" placeholder="verb">
+                                </div>
+                                <div class="form-group">
+                                    <span class="float-right">
+                                    <button type="submit" class="btn btn-dark float-right">Submit</button></span>
+                                    <span class="float-right">
+                                        <button type="button" class="btn btn-dark" >Go Back</button></span>
+                                    </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="difficulty" role="tabpanel" aria-labelledby="diff-tab">
+                            
+                            <p style="font-weight: bold;" class="mt-3">Choose the Difficulty</p>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="Radios" id="easy" value="option1">
+                                    <label class="form-check-label" for="easy">
+                                    Easy
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="Radios" id="medium" value="option2">
+                                    <label class="form-check-label" for="medium">
+                                    Medium
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="Radios" id="hard" value="option3">
+                                    <label class="form-check-label" for="hard">
+                                    Hard
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="Radios" id="mixed" value="option4">
+                                    <label class="form-check-label" for="mixed">
+                                    Mixed
+                                    </label>
+                                </div><br>
+                                <span>
+                                    <button type="submit" class="btn btn-dark">Submit</button>
+                                </span>
+                                <span
+                                    <button type="button" class="btn btn-dark">Go Back</button>
+                            </span>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+    <script>$('.nav-tabs a').click(function(){ 
+        $(this).tab('show'); 
+        }) 
+        
+        
+       
+        </script>
+        
+  </body>
+</html>
