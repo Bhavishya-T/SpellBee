@@ -2,50 +2,50 @@ class WordAPI{
     
     async getword(w){
         let link='';
-        const d = w.difficulty;
+        let d = w.difficulty;
+        console.log(d);
         switch(d){
             case 'easy':
                 let chance = Math.random()*3;
                 if(chance>=0 && chance<1){
-                    link = "https://wordsapiv1.p.rapidapi.com/words/?lettersmin=4&lettersMax=6&limit=1&frequencymin=1.74&frequencymax=4"
+                    console.log('easy 1');
+                    link = "https://wordsapiv1.p.rapidapi.com/words/?letterPattern=%5E%5Ba-zA-Z%5D%2B%24&lettersmin=4&lettersMax=6&limit=1&frequencymin=4&frequencymax=6&random=true";
                 }
                 if(chance>=1 && chance<2){
-                    link = "https://wordsapiv1.p.rapidapi.com/words/?lettersmin=6&lettersMax=8&limit=1&frequencymin=4&frequencymax=7"
+                    console.log('easy 2');
+                    link = "https://wordsapiv1.p.rapidapi.com/words/?letterPattern=%5E%5Ba-zA-Z%5D%2B%24&lettersmin=6&lettersMax=8&limit=1&frequencymin=6&frequencymax=7&random=true";
                 }
                 if(chance>=2 && chance<=3){
-                    link = "https://wordsapiv1.p.rapidapi.com/words/?lettersmin=8&lettersMax=10&limit=1&frequencymin=7&frequencymax=8.03"
+                    console.log('easy 3');
+                    link = "https://wordsapiv1.p.rapidapi.com/words/?letterPattern=%5E%5Ba-zA-Z%5D%2B%24&lettersmin=8&lettersMax=10&limit=1&frequencymin=5&frequencymax=8.03&random=true";
                 }
                 break;
             case 'medium':
                 let ch = Math.random()*2;
                 if(ch>=0 && ch<1){
-                    link = "https://wordsapiv1.p.rapidapi.com/words/?lettersmin=6&lettersMax=8&limit=1&frequencymin=1.74&frequencymax=4"
+                    link = "https://wordsapiv1.p.rapidapi.com/words/?letterPattern=%5E%5Ba-zA-Z%5D%2B%24&lettersmin=6&lettersMax=8&limit=1&frequencymin=3&frequencymax=4&random=true";
                 }
                 if(ch>=1 && ch<=2){
-                    link = "https://wordsapiv1.p.rapidapi.com/words/?lettersmin=8&lettersMax=12&limit=1&frequencymin=3&frequencymax=7"
+                    link = "https://wordsapiv1.p.rapidapi.com/words/?letterPattern=%5E%5Ba-zA-Z%5D%2B%24&lettersmin=8&lettersMax=12&limit=1&frequencymin=4&frequencymax=7&random=true";
                 }
                 break;
             case 'hard':
-                let c = Math.random()*2;
-                if(c>=0 && c<1){
-                    link = "https://wordsapiv1.p.rapidapi.com/words/?lettersmin=6&lettersMax=8&limit=1&frequencymin=1.74&frequencymax=2"
-                }
-                if(c>=1 && c<=2){
-                    link = "https://wordsapiv1.p.rapidapi.com/words/?lettersmin=8&limit=1&frequencymin=2&frequencymax=4"
-                }
+                link = "https://wordsapiv1.p.rapidapi.com/words/?letterPattern=%5E%5Ba-zA-Z%5D%2B%24&lettersmin=8&lettersMax=14&frequencymin=1.74&frequencymax=3&random=true";
+                break;
+            case 'mixed':
+                link = "https://wordsapiv1.p.rapidapi.com/words/?letterPattern=%5E%5Ba-zA-Z%5D%2B%24&random=true";
                 break;
 
         }
-        const wordresponse = await fetch(link, {
+        let wordresponse = await fetch(link, {
             "method": "GET",
             "headers": {
                 "x-rapidapi-key": "7523e5365fmsh2313c4f4d238723p168f7fjsnc4ea12119088",
                 "x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
             }
         });
-
-        const response = await wordresponse.json();
-        return response;
+        
+        let response = await wordresponse.json();
+        return response.word;
     }
-
 }

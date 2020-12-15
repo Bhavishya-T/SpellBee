@@ -8,14 +8,15 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     
-
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <title>Spell Bee!</title>
+    <link rel="shortcut icon" href="#" />
   </head>
   <style>
       body { overflow-y: scroll; }
   </style>
   <body class="bg-light">
-    <div class="container">
+    <div class="container" id="cont">
         <div class="navbar justify-content-center">
             <h1 class="display-1">Spelling Bee</h1>
             <br>
@@ -33,7 +34,7 @@
         </div>
         <div class="col d-flex justify-content-center d-none" id="main">
             <div class="card" style="width: 80%;">
-                <div class="card-body">
+                <div class="card-body" id="bod">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                           <a class="nav-link active" id="filt-tab" data-toggle="tab" href="#filter" role="tab" aria-controls="filter" aria-selected="true">Filters</a>
@@ -113,11 +114,84 @@
                 </div>
             </div>
         </div>
+        <div class="container d-none" id="page">
+            <div class="col d-flex justify-content-center" id="second">
+                <div class="card" style="width: 80%;">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div class="form-check col d-flex justify-content-center mb-4">
+                                <input class="form-check-input" type="radio" name="Radio" id="assist" value="option">
+                                <label class="form-check-label" for="assist">
+                                Assist Mode
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            
+                            <div class="col-md-6 text-center mt-4 mb-2" >
+                                <i class="fas fa-volume-up fa-3x"></i>
+                                <br>
+                                <br>
+                                <br>
+                                <div class="col-md-12 text-center mt-2">
+                                
+                                    <label for="answer" class="form-label">Enter your answer</label>
+                                    <span>
+                                    <input type="text" class="form-control text-center" id="answer" aria-describedby="ans">
+                                    <!-- <i class="fas fa-check-circle"></i>
+                                    <i class="fas fa-minus"></i>
+                                    <i class="fas fa-times-circle"></i> -->
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="def">Definition</span>
+                                            </div>
+                                            <input type="text" class="form-control" aria-describedby="def" readonly>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="pos">Part of Speech</span>
+                                            </div>
+                                            <input type="text" class="form-control"  aria-describedby="pos" readonly>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="syn">Synonyms</span>
+                                            </div>
+                                            <input type="text" class="form-control"  aria-describedby="syn" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mt-3">
+                                <div id="buttons">
+                                    <button class="btn btn-dark" id="next">Next Word</button>
+                                    <button class="btn btn-dark " id="stop">Quit</button>
+                                </div>
+                            </div>
+                            
+                            </div>
+                            <div class="col d-flex justify-content-center mt-5">
+                                <h1 class="display-6">Score - <span>4</span>/5</h1>    
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>  
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    
     <script src="api.js"></script>
+    <script src="create.js"></script>
     <script src="app.js"></script>
+    <script src="inter.js"></script>
 
     <script>$('.nav-tabs a').click(function(){ 
         $(this).tab('show'); 

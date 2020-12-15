@@ -1,0 +1,6 @@
+class Inter{
+
+    showw(word){
+        
+    }
+}
